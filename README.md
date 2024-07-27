@@ -20,18 +20,16 @@ Step 1. Install Python on your computer. For Windows, I recommend installing usi
 
 ``choco install pip``
 
-
-
 Step 2. Install the dependent libraries.
 
 ``pip install numpy pyside6 pyqtgraph``
-
-
 
 Step 3. Download this project and run the following command in the NyanPy directory. For Windows, double-click the batch file "run.bat" to start the program.
 
 ``python -m NyanPy``
 
+# Demo
 
 
-# 
+
+![img](https://raw.githubusercontent.com/NeuroiSS/NyanPy/master/docs/Demo.gif)

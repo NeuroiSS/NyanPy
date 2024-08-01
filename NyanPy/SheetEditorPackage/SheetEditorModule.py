@@ -63,8 +63,8 @@ class SheetEditor(QtWidgets.QMainWindow):
         <br><strong>Features</strong><br>
         - Moving cursor with HJKL keys like Vim<br>
         - Switching editor modes like Vim<br>
-        - Variables<br>
-        - Plotting graphs<br>
+        - Variables for calculations<br>
+        - Interactive graph plotting based on PyQtGraph<br>
 
         <br><strong>Modes</strong><br>
         - NORMAL mode [Esc] - Default mode<br>
@@ -74,13 +74,13 @@ class SheetEditor(QtWidgets.QMainWindow):
         - VISUAL-LINE mode [Shift+V] - Select lines by HJKL<br>
 
         <br><strong>Variables</strong><br>
-        Pressing [S] assigns selected data to a variable. You can also add variables in the
-        'Variables' dock. Python expressions and NumPy functions are available in variable
-        definitions. Pressing [P] puts evaluated results into the spreadsheet.<br>
+        Press [S] to assign the selected data to a variable. Variables can also be
+        defined with Python expressions. NumPy functions are available. Press [P] to
+        put the evaluated results into the spreadsheet.<br>
 
         <br><strong>Plotting Graphs</strong><br>
-        Press [A] to add selected data to the plotting list. You can adjust graphs in the
-        'Plotting' dock.<br>
+        Press [A] to add the selected data to the plotting list. In the 'Plotting'
+        dock window (or tab), you can modify the styles and make graphs.<br>
 
         <br><strong>Shortcuts</strong><br>
         [Ctrl+C] or [Y]:copy (yank), [Ctrl+V] or [P]:paste (put), [Del]:delete,

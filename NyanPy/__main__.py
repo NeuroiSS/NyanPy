@@ -25,7 +25,7 @@ class Launcher(QtWidgets.QMainWindow):
         apps = QtWidgets.QTreeWidgetItem(['Apps'])
         apps.addChild(QtWidgets.QTreeWidgetItem(['AnalogClock', 'Simple analog clock']))
         apps.addChild(QtWidgets.QTreeWidgetItem(['CodeEditor' , 'Text editor for coding Python and Matlab/GNU Octave']))
-        apps.addChild(QtWidgets.QTreeWidgetItem(['SheetEditor', 'Vim-like spreadsheet with plotting graphs']))
+        apps.addChild(QtWidgets.QTreeWidgetItem(['SheetEditor', 'Spreadsheet for Vimmers']))
         tableWidget.addTopLevelItem(apps)
 
         tableWidget.expandAll()

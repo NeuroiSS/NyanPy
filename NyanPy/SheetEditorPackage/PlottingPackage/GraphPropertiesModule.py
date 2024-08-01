@@ -31,7 +31,7 @@ class GraphProperties(QtCore.QObject):
         self.__legendPosY = 0
         self.__legendColumnCount = 1
         self.__gridVisibility = Visibility.SHOW
-        self.__gridOpacity = 30
+        self.__gridOpacity = 20
         self.__contentsMargins = (0, 0, 0, 0) # left,top,right,bottom 
         self.__width = 500
         self.__height = 300

@@ -8,24 +8,24 @@ class SheetFindReplace(QtWidgets.QDialog):
 
     def __init__(self, parent = None):
         super().__init__(parent)
-        self.__lineEdit_Find_What = QtWidgets.QLineEdit('^[a-zA-Z]+$')
-        self.__lineEdit_Replace = QtWidgets.QLineEdit()
-        self.__checkBox_Replace = QtWidgets.QCheckBox('Replace:')
-        self.__radio_All = QtWidgets.QRadioButton('All')
-        self.__radio_Selected = QtWidgets.QRadioButton('Selected')
+        self.__findTextLineEdit = QtWidgets.QLineEdit('^[a-zA-Z]+$')
+        self.__replaceTextLineEdit = QtWidgets.QLineEdit()
+        self.__replaceCheckBox = QtWidgets.QCheckBox('Replace:')
+        self.__allScopeRadioButton = QtWidgets.QRadioButton('All')
+        self.__selectedScopeRadioButton = QtWidgets.QRadioButton('Selected')
         self.__buttonGroup = QtWidgets.QButtonGroup()
-        self.__buttonGroup.addButton(self.__radio_All)
-        self.__buttonGroup.addButton(self.__radio_Selected)
+        self.__buttonGroup.addButton(self.__allScopeRadioButton)
+        self.__buttonGroup.addButton(self.__selectedScopeRadioButton)
 
         self.setupUi()
         self.setWindowTitle('Find & Replace')
 
     def find(self) -> str:
-        return self.__lineEdit_Find_What.text()
+        return self.__findTextLineEdit.text()
 
     def replace(self) -> tuple:
-        checked = self.__checkBox_Replace.isChecked()
-        text = self.__lineEdit_Replace.text()
+        checked = self.__replaceCheckBox.isChecked()
+        text = self.__replaceTextLineEdit.text()
         return (checked, text)
 
     def scope(self) -> str:
@@ -33,11 +33,11 @@ class SheetFindReplace(QtWidgets.QDialog):
         return button.text() if button else ''
 
     def setupUi(self):
-        self.__checkBox_Replace.setChecked(False)
-        self.__lineEdit_Replace.setEnabled(False)
-        self.__checkBox_Replace.clicked[bool].connect(self.__lineEdit_Replace.setEnabled)
-        self.__radio_All.setChecked(True)
-        self.__radio_Selected.setChecked(False)
+        self.__replaceCheckBox.setChecked(False)
+        self.__replaceTextLineEdit.setEnabled(False)
+        self.__replaceCheckBox.clicked[bool].connect(self.__replaceTextLineEdit.setEnabled)
+        self.__allScopeRadioButton.setChecked(True)
+        self.__selectedScopeRadioButton.setChecked(False)
         buttonbox = QtWidgets.QDialogButtonBox(QtWidgets.QDialogButtonBox.Ok\
                 | QtWidgets.QDialogButtonBox.Cancel)
         buttonbox.accepted.connect(self.accept)
@@ -53,12 +53,12 @@ class SheetFindReplace(QtWidgets.QDialog):
         # Layouts
         vboxlayout = QtWidgets.QVBoxLayout()
         vboxlayout.addWidget(QtWidgets.QLabel('Find what:'))
-        vboxlayout.addWidget(self.__lineEdit_Find_What)
-        vboxlayout.addWidget(self.__checkBox_Replace)
-        vboxlayout.addWidget(self.__lineEdit_Replace)
+        vboxlayout.addWidget(self.__findTextLineEdit)
+        vboxlayout.addWidget(self.__replaceCheckBox)
+        vboxlayout.addWidget(self.__replaceTextLineEdit)
         vboxlayout.addWidget(QtWidgets.QLabel('Search scope:'))
-        vboxlayout.addWidget(self.__radio_All)
-        vboxlayout.addWidget(self.__radio_Selected)
+        vboxlayout.addWidget(self.__allScopeRadioButton)
+        vboxlayout.addWidget(self.__selectedScopeRadioButton)
         vboxlayout.addStretch()
         vboxlayout.addWidget(buttonbox)
         hboxlayout = QtWidgets.QHBoxLayout(self)

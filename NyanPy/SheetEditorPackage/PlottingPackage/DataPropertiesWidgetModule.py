@@ -20,7 +20,7 @@ class DataPropertiesWidget(QtWidgets.QWidget):
         'gem'    :'#0072bd #d95319 #edb120 #7e2f8e #77ac30 #4dbeee #a2142f',\
         'gem12'  :'#0072bd #d95319 #edb120 #7e2f8e #77ac30 #4dbeee #a2142f #ffd60a #6582fd #ff453a #00a3a3 #cb845d',\
         'glow'   :'#268cdd #f57729 #ffe864 #c05cfb #49db40 #6cf4ff #f267c5',\
-        'gloleftWidget2' :'#268cdd #f57729 #ffe864 #c05cfb #49db40 #6cf4ff #f267c5 #fec04c #7da9ff #ff7a74 #1fcfbe #dc996c',\
+        'glow12' :'#268cdd #f57729 #ffe864 #c05cfb #49db40 #6cf4ff #f267c5 #fec04c #7da9ff #ff7a74 #1fcfbe #dc996c',\
         'sail'   :'#104280 #54b6ff #ff453a #902622 #1171be',\
         'reef'   :'#dd5400 #54b6ff #1171be #fe9043 #74ebda #00a3a3',\
         'meadow' :'#02580e #3ac831 #ffd60a #f57729 #c04c0b #fa8ad4 #7da9ff',\

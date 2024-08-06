@@ -6,9 +6,13 @@ import os
 
 QtCore.QDir.addSearchPath('img', os.path.join(os.path.dirname(__file__), 'Resources/Images'))
 
+# Main Applications
 from AnalogClockPackage.AnalogClockModule import AnalogClock
 from CodeEditorPackage.CodeEditorWindowModule import CodeEditorWindow
 from SheetEditorPackage.SheetEditorModule import SheetEditor
+
+# Microwave RF
+from MicrowaveRFPackage.TouchstoneViewerPackage.TouchstoneViewerModule import TouchstoneViewer
 
 class Launcher(QtWidgets.QMainWindow):
 
@@ -25,8 +29,12 @@ class Launcher(QtWidgets.QMainWindow):
         apps = QtWidgets.QTreeWidgetItem(['Apps'])
         apps.addChild(QtWidgets.QTreeWidgetItem(['AnalogClock', 'Simple analog clock']))
         apps.addChild(QtWidgets.QTreeWidgetItem(['CodeEditor' , 'Text editor for coding Python and Matlab/GNU Octave']))
-        apps.addChild(QtWidgets.QTreeWidgetItem(['SheetEditor', 'Vim-like spreadsheet with plotting graphs']))
+        apps.addChild(QtWidgets.QTreeWidgetItem(['SheetEditor', 'Spreadsheet for Vimmers']))
         tableWidget.addTopLevelItem(apps)
+
+        microwaveRF = QtWidgets.QTreeWidgetItem(['Microwave RF'])
+        microwaveRF.addChild(QtWidgets.QTreeWidgetItem(['TouchstoneViewer', 'Viewer for Touchstone (SnP) files']))
+        tableWidget.addTopLevelItem(microwaveRF)
 
         tableWidget.expandAll()
         tableWidget.header().setSectionResizeMode(QtWidgets.QHeaderView.ResizeToContents)
@@ -57,6 +65,7 @@ class Launcher(QtWidgets.QMainWindow):
         app = AnalogClock() if name == 'AnalogClock'\
                 else CodeEditorWindow() if name == 'CodeEditor'\
                 else SheetEditor() if name == 'SheetEditor'\
+                else TouchstoneViewer() if name == 'TouchstoneViewer'\
                 else None
         if app:
             self.__children.append(app)

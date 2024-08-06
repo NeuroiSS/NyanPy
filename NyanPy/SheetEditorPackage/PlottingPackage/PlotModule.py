@@ -11,7 +11,7 @@ from GraphPropertiesModule import *
 import pyqtgraph as pg
 
 # Global configuration options
-pg.setConfigOptions(antialias=True, background='w', foreground='k')
+#pg.setConfigOptions(antialias=True, background='w', foreground='k')
 
 class Plot(pg.GraphicsLayoutWidget):
 
@@ -37,6 +37,14 @@ class Plot(pg.GraphicsLayoutWidget):
 
     @Slot()
     def plot(self, items:list, colorOrder:list, properties):
+        # Backup Global options
+        foreground = pg.getConfigOption('foreground')
+        antialias = pg.getConfigOption('antialias')
+
+        # Set Global options and background color
+        pg.setConfigOptions(antialias=True, foreground='k')
+        self.setBackground('w')
+
         # Clear contents
         self.clear()
         self.p1 = None
@@ -133,6 +141,9 @@ class Plot(pg.GraphicsLayoutWidget):
 
         self.updateViews()
         self.p1.vb.sigResized.connect(self.updateViews)
+
+        # Reset Global options
+        pg.setConfigOptions(antialias=antialias, foreground=foreground)
 
     @Slot()
     def updateViews(self):

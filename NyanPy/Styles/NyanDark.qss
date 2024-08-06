@@ -416,4 +416,17 @@ QTabBar::tab:hover {
 QTabBar::tab:selected {
 	border-bottom   : 2px solid #e8e8d3;
 }
+/* QProgressBar */
+QProgressBar {
+	background-color: #151515;
+    color           : #e8e8d3;
+    border          : 2px solid #888888;
+    border-radius   : 5px;
+	height          : 20px;
+	text-align      : center;
+}
+QProgressBar::chunk {
+    background-color: #8197bf;
+    width           : 10px;
+}
 
